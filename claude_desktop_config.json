@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "crestron": {
+      "command": "python",
+      "args": [
+        "/absolute/path/to/crestron_mcp.py"
+      ],
+      "env": {
+        "CRESTRON_HOST": "192.168.1.100",
+        "CRESTRON_AUTH_TOKEN": "your-token-here"
+      }
+    }
+  }
+}
