@@ -94,7 +94,7 @@ _session = CrestronSession()
 
 
 @asynccontextmanager
-async def app_lifespan():
+async def app_lifespan(app):
     """Manage HTTP client lifecycle."""
     # Initialize HTTP client with SSL verification disabled for self-signed certs
     _session.client = httpx.AsyncClient(
