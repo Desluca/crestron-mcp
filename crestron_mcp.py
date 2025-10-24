@@ -21,8 +21,7 @@ CHARACTER_LIMIT = 25000
 API_TIMEOUT = 30.0
 SESSION_TIMEOUT = 540  # 9 minutes (10-minute session timeout with 1-minute buffer)
 
-# Initialize FastMCP server
-mcp = FastMCP("crestron_mcp")
+# FastMCP server will be initialized after lifespan function
 
 # ============================================================================
 # Enums and Models
@@ -651,8 +650,8 @@ class SetShadeStateInput(BaseModel):
     shades: List[ShadePosition] = Field(
         ...,
         description="List of shade positions to set. Each entry contains shade ID and position (0-100)",
-        min_items=1,
-        max_items=50
+        min_length=1,
+        max_length=50
     )
 
 
@@ -1021,8 +1020,8 @@ class SetThermostatSetpointInput(BaseModel):
     setpoints: List[ThermostatSetpoint] = Field(
         ...,
         description="List of setpoints to configure (Heat, Cool, or Auto)",
-        min_items=1,
-        max_items=3
+        min_length=1,
+        max_length=3
     )
 
 
@@ -1109,8 +1108,8 @@ class SetThermostatModeInput(BaseModel):
     thermostats: List[ThermostatModeCommand] = Field(
         ...,
         description="List of thermostats and their target modes",
-        min_items=1,
-        max_items=50
+        min_length=1,
+        max_length=50
     )
 
 
@@ -1184,8 +1183,8 @@ class SetThermostatFanInput(BaseModel):
     thermostats: List[ThermostatFanCommand] = Field(
         ...,
         description="List of thermostats and their target fan modes",
-        min_items=1,
-        max_items=50
+        min_length=1,
+        max_length=50
     )
 
 
